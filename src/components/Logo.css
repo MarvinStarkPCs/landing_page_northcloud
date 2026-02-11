@@ -1,0 +1,68 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-image {
+  filter: drop-shadow(0 2px 8px rgba(50, 160, 240, 0.2));
+  transition: var(--transition);
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-image:hover {
+  filter: drop-shadow(0 4px 12px rgba(50, 160, 240, 0.4));
+  transform: scale(1.05);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.logo-tagline {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* Variantes de logo */
+.logo-container.header {
+  cursor: pointer;
+}
+
+.logo-container.footer .logo-title {
+  color: white;
+  background: none;
+  -webkit-text-fill-color: white;
+}
+
+.logo-container.footer .logo-tagline {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .logo-title {
+    font-size: 1.25rem;
+  }
+
+  .logo-tagline {
+    font-size: 0.55rem;
+  }
+}

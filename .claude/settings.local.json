@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(cmd /c \"mkdir D:\\\\northcloud\\\\public\\\\clients 2>nul & copy D:\\\\northcloud\\\\dist\\\\assets\\\\clientes_productos\\\\*.png D:\\\\northcloud\\\\public\\\\clients\"\")",
+      "Bash(powershell:*)",
+      "Bash(ls:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

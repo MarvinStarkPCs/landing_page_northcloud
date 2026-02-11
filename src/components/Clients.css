@@ -1,0 +1,226 @@
+.clients {
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.clients::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--border) 50%, transparent 100%);
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+.client-card {
+  background: white;
+  padding: 40px 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.client-card:hover::before {
+  transform: scaleX(1);
+}
+
+.client-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.client-logo-wrapper {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 20px;
+  transition: var(--transition);
+}
+
+.client-card:hover .client-logo-wrapper {
+  background: rgba(50, 160, 240, 0.05);
+  transform: scale(1.05);
+}
+
+.client-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition);
+}
+
+.client-card:hover .client-logo {
+  filter: grayscale(0%) opacity(1);
+}
+
+.placeholder-logo {
+  width: 80px;
+  height: 80px;
+  color: var(--primary-color);
+  opacity: 0.3;
+}
+
+.client-card.placeholder {
+  border-style: dashed;
+  border-color: var(--border-light);
+}
+
+.client-card.placeholder:hover {
+  border-color: var(--primary-color);
+  border-style: dashed;
+}
+
+.client-info {
+  width: 100%;
+}
+
+.client-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.client-category {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(50, 160, 240, 0.1);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.813rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.placeholder-text {
+  color: var(--text-light);
+}
+
+.client-card.placeholder .client-category {
+  background: rgba(110, 180, 30, 0.1);
+  color: var(--green-primary);
+}
+
+/* CTA Section */
+.clients-cta {
+  text-align: center;
+  padding: 48px 32px;
+  background: white;
+  border-radius: 16px;
+  border: 2px dashed var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-cta::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 0;
+  border-radius: 16px;
+}
+
+.clients-cta:hover::before {
+  opacity: 0.05;
+}
+
+.clients-cta:hover {
+  border-color: var(--primary-color);
+}
+
+.cta-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.clients-cta .btn {
+  position: relative;
+  z-index: 1;
+  padding: 16px 40px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .clients-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .client-card {
+    padding: 32px 24px;
+  }
+
+  .client-logo-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .clients-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clients-cta {
+    padding: 32px 24px;
+  }
+
+  .cta-text {
+    font-size: 1.125rem;
+  }
+}
